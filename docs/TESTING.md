@@ -15,11 +15,15 @@ Unit saves use `unit-test` and progression saves use `integration-test`, isolate
 ## Evidence recorded 2026-11-07
 - Engine: 4.7.2.stable.official.ed1daf0bf.
 - Headless startup: 120 frames, exit 0, no reported game errors.
-- Survival test: 13 checks passed after fixing JSON numeric-type normalisation.
+- Survival test: 15 checks passed, including JSON numeric-type normalisation, malformed schema rejection and corrupted-primary recovery from a valid backup.
 - Integration test: 26 checks passed after correcting input event buffering in the test. Covers resource bounds, input movement, peaceful crab, crafting/placement failure atomicity, fixture progression through all objectives, ending/free roam, respawn and saved structures.
 - Desktop visual inspection: actual OpenGL renderer on NVIDIA GeForce GTX 1650; observed HUD, island, character, wildlife, touch controls and E gathering (+2 wood). Found overlapping buttons and aggressive beach crabs; implementation corrected and integration regression added. Recheck the final built UI after changes.
 
-Logs are supplied alongside the project. Record new results rather than assuming previous tests cover later changes.
+Final logic runs: 41 checks total, zero failures. Headless mode explicitly disables audio playback; these tests do not certify sound. Actual audio playback still needs listening and lifecycle QA. Clean test logs are in `docs/evidence/`.
+
+Android debug APK export succeeded. Manifest inspected: package `org.islandsurvivor.lostworld`, version 0.1.0-dev, min SDK 24, target/compile SDK 36. Signature verification succeeded during export. An earlier device listing showed emulator-5554; it was no longer available at install time. A separate workspace-only emulator configuration was attempted, but startup failed with: "x86_64 emulation currently requires hardware acceleration" and Windows Hypervisor Platform unavailable to the emulator. No successful installation or Android gameplay is claimed. Do not change Windows virtualisation/security settings automatically; use an enabled emulator host or physical Android device for the remaining tests.
+
+Record new results rather than assuming previous tests cover later changes.
 
 ## Required manual checks
 Fresh save: gather, craft axe, place shelter, eat coconut, survive first night, respawn, craft all structures, store/take stacks, cook/fish/farm/collect water, complete all 20 quests without fixtures, use raft, continue free roam, quit/reload.

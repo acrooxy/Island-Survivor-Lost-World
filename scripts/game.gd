@@ -72,6 +72,9 @@ func _ready() -> void:
 	update_hud()
 
 func setup_audio() -> void:
+	# Headless logic suites do not exercise audio playback.
+	if DisplayServer.get_name() == "headless":
+		return
 	var settings := ConfigFile.new()
 	if settings.load("user://settings.cfg") == OK:
 		audio_volume = clampf(float(settings.get_value("audio","volume",0.65)),0,1)
@@ -194,6 +197,7 @@ func show_craft() -> void:
 func show_pause() -> void:
 	clear_panel("Island Survivor: Lost World")
 	panel_button("Save game",func(): save_now())
+	panel_button("Credits & engine licences",func(): show_credits())
 	var volume := HSlider.new()
 	volume.min_value = 0
 	volume.max_value = 1
@@ -207,6 +211,18 @@ func show_pause() -> void:
 	panel_body.add_child(volume)
 	panel_button("Restart • opens confirmation",func(): clear_panel("Erase this local adventure?"); panel_button("Confirm restart",restart))
 	panel_button("Field guide",func(): clear_panel("Move: WASD / arrows / left thumb\nE: gather, drink at shore, use nearby structures\nSpace: attack • 1–5: eat / heal\nCraft structures, then PLACE on clear ground.\nShelters restore energy. Collectors supply safe water.\nRuins: read the seal, then activate it in daylight."))
+
+func show_credits() -> void:
+	clear_panel("Island Survivor • original project art and audio")
+	for filename in ["Godot-LICENSE.txt","Godot-COPYRIGHT.txt"]:
+		var name: String = filename
+		panel_button(name,func():
+			clear_panel(name)
+			var text := Label.new()
+			text.custom_minimum_size.x = 600
+			text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			text.text = FileAccess.get_file_as_string("res://assets/legal/"+name)
+			panel_body.add_child(text))
 
 func notify(text: String) -> void:
 	message = text
@@ -562,6 +578,12 @@ func _notification(what: int) -> void:
 		paused = true
 	if what == NOTIFICATION_APPLICATION_RESUMED and is_instance_valid(panel):
 		show_pause()
+
+func _exit_tree() -> void:
+	for audio in [music,ocean,effect]:
+		if is_instance_valid(audio):
+			audio.stop()
+			audio.stream = null
 
 func restart() -> void:
 	model = Survival.new()

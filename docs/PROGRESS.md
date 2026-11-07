@@ -15,17 +15,17 @@ Status: development build with a verified desktop survival foundation; overall g
 ## Verified progress, 2026-11-07
 - Downloaded official Godot 4.7.2 and portable Git. Found Java 25.0.4 in Android Studio and a running Android emulator.
 - M1 foundation: actual desktop OpenGL launch, HUD/world/character rendered, E gathered wood, keyboard movement passed automated process-loop test. Fixed starter crabs attacking unprovoked and action button overlap. Local commit 87b506a on milestone/m1-playable.
-- M2 systems: 13 survival/inventory checks passed, including failed transactions and save round trip. Structure overlap consumes no materials. Implemented shelter, cooking, fishing, collector, storage and version 1 saves. Completion is partial: wider manual UI and corruption/lifecycle cases remain.
+- M2 systems: 15 survival/inventory checks passed, including failed transactions, save round trip, malformed schema rejection and backup recovery. Structure overlap consumes no materials. Implemented shelter, cooking, fishing, collector, storage and version 1 saves. Completion is partial: wider manual UI and interrupted-write/lifecycle cases remain.
 - M3 systems: six region definitions, seeded resource population checked for valid terrain. 26 integration checks passed including story fixture progression through rescue/free roam. Not a full player playthrough; authored world/AI/story depth remains incomplete.
-- M4 in progress: original procedural art, icon, ocean/music/effect WAVs and persistent volume control implemented. Actual-render screenshots captured. Audio listening and physical performance tests pending.
-- M5 in progress: Windows executable exported. First Android debug APK export succeeded with template SDK defaults after SDK access/configuration fixes. Rebuilding with the new project icon. APK installation/run, AAB and ads still pending at this record.
-- User authorised uploading to their existing public repository acrooxy/Island-Survivor-Lost-World. It was empty; initial .gitignore commit created on main, development/first-playable branch created. Upload remains pending until verified below.
+- M4 in progress: original procedural art, icon, ocean/music/effect synthesis and persistent volume control implemented. Actual-render screenshots captured. Large WAV renders were replaced by compact original synthesis source after connector review rejected the oversized payload; source and screenshots uploaded successfully. Audio listening and physical performance tests pending. Headless test runs skip playback, avoiding audio-driver shutdown warnings; this is explicitly not an audio test.
+- M5 in progress: Windows executable and signed debug APK exported with original icon. Android manifest inspected: min SDK 24, target/compile SDK 36. APK install could not run because no device remained connected. A new isolated emulator failed to start because hardware acceleration was unavailable. No Android install/play result is claimed. AAB and native ads/UMP remain unimplemented.
+- User authorised uploading to existing public repository acrooxy/Island-Survivor-Lost-World. Complete current source/assets/docs uploaded on development/first-playable, initial source commit 08e5ac07f1dd7b077c24b0e33492819aa075a848; remote tree inspected and all 31 initial intended files were present. Draft PR: https://github.com/acrooxy/Island-Survivor-Lost-World/pull/1 . Follow-up commits include final test evidence, cleanup and packaged engine licence notices. Branch/PR remain unmerged.
 
 ## Next actions
-1. Finish Android rebuild, install/launch on emulator, inspect manifest and logcat, capture actual Android screen.
-2. Re-run tests after final modifications; copy clean evidence logs and commit.
-3. Upload complete source/assets/docs to development/first-playable; verify remote tree and open a draft PR.
-4. Continue M2–M4 quality gaps listed in KNOWN_ISSUES; integrate and verify native ads/consent only after choosing a compatible plugin.
+1. Run APK install/launch on a physical device or hardware-accelerated emulator; capture actual Android gameplay and lifecycle evidence.
+2. Continue M2–M4 quality gaps listed in KNOWN_ISSUES, especially full unassisted story playthrough, original final art, collision/pathfinding, water purification, base upgrades and farming.
+3. Build and validate a Gradle AAB with a compatible JDK and installed SDK platform; no production signing key is configured.
+4. Integrate and verify native rewarded ads/UMP using a pinned compatible plugin. No production ad activation or publishing without owner approval.
 
 ## Rules for continuation
 Resume from this document and test results. Features described in design documents are intentions until verified. Never mark Android, ads, performance or visual QA passed without running the corresponding tests. Never include signing secrets in source.

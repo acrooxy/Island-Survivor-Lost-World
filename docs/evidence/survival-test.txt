@@ -12,5 +12,7 @@ PASS: 20 stacks fit
 PASS: 21st stack rejected without mutation
 PASS: save returns success
 PASS: save round trip
+PASS: malformed schema rejected
+PASS: corrupt primary recovers valid backup
 PASS: starvation damages health
 RESULT: 0 failures
