@@ -1,0 +1,13 @@
+{
+  "day_seconds":720,"move_speed":145,"stack_limit":50,"inventory_slots":20,
+  "hunger_seconds":20,"thirst_seconds":12,"energy_seconds":15,
+  "recipes":{
+    "Stone Axe":{"wood":3,"stone":2},"Stone Pickaxe":{"wood":2,"stone":3},
+    "Campfire":{"wood":5,"stone":4},"Basic Shelter":{"wood":15,"leaves":10},
+    "Rope":{"fibre":3},"Fishing Rod":{"wood":4,"rope":2},
+    "Water Collector":{"wood":8,"leaves":5},"Workbench":{"wood":12,"stone":6},
+    "Wooden Chest":{"wood":10},"Raft":{"wood":30,"rope":15},
+    "Wooden Cabin":{"wood":35,"stone":15,"rope":5},"Farming Plot":{"wood":6,"fibre":4},
+    "Defensive Fence":{"wood":8,"stone":3},"Radio Station":{"wood":12,"iron ore":6,"radio parts":3}
+  }
+}

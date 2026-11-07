@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS: exact hunger and thirst intervals
+PASS: standing does not drain energy
+PASS: active energy interval
+PASS: cannot craft without materials
+PASS: axe recipe succeeds
+PASS: recipe consumes exact materials
+PASS: tool durability assigned
+PASS: failed consumption is atomic
+PASS: 20 stacks fit
+PASS: 21st stack rejected without mutation
+PASS: save returns success
+PASS: save round trip
+PASS: starvation damages health
+RESULT: 0 failures
