@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS: six-region resource population
+PASS: all generated resources on valid ground
+PASS: keyboard movement through actual process loop
+PASS: healthy crab does not attack starting player
+PASS: first two material objectives
+PASS: shelter placement and chapter one progression
+PASS: overlapping building rejects without costs
+PASS: quest 5 progression
+PASS: quest 6 progression
+PASS: quest 7 progression
+PASS: quest 8 progression
+PASS: quest 9 progression
+PASS: quest 10 progression
+PASS: quest 11 progression
+PASS: quest 12 progression
+PASS: quest 13 progression
+PASS: quest 14 progression
+PASS: quest 15 progression
+PASS: quest 16 progression
+PASS: quest 17 progression
+PASS: quest 18 progression
+PASS: quest 19 progression
+PASS: ending reachable through 20-step progression fixture
+PASS: free exploration after ending
+PASS: respawn resets needs and grants protection
+PASS: placed structures survive save round trip
+RESULT: 0 failures
